@@ -391,16 +391,17 @@
 
     function openModal(item, status) {
       modalDayEl.textContent = `${item.day}. Dezember 2026`;
-      modalTitleEl.textContent = item.title;
 
       if (status === "locked") {
+        modalTitleEl.textContent = "Noch verschlossen";
         modalBodyEl.innerHTML = `
           <div class="locked-note">
             Dieses Türchen lässt sich erst am <strong>${item.day}. Dezember 2026</strong> öffnen.
-            Ein kleines bisschen Geduld noch – dann wartet eine neue Erinnerung auf dich!
+            Ein kleines bisschen Geduld noch – dann wartet eine neue Überraschung auf dich!
           </div>
         `;
       } else {
+        modalTitleEl.textContent = item.title;
         markDayOpened(item.day);
         modalBodyEl.innerHTML = `
           <img class="modal-image" src="${item.imageUrl}" alt="${item.title}" />
